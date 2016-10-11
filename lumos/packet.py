@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 This module defines the packet structures sent over E1.31
 """
