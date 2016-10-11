@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.7
+
 from packet import E131Packet
 from source import DMXSource
 
@@ -32,9 +34,14 @@ sock.settimeout(0.2)
 # sent = sock.sendto(p.packet, (UDP_IP, UDP_PORT))
 src = DMXSource()
 import time
-for i in range(500):
+data[2]= 0
+
+for i in range(255):
+    data[0] = i
+    data[1] = 255 -  i
     src.send_data(data)
     time.sleep(0.1)
+    print(".")
 
-
-
+data = [0] * 500
+src.send_data(data)
