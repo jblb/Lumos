@@ -8,7 +8,7 @@ from source import DMXSource
 import time
 
 
-data = [255] * 16
+data = [0] * 16
 
 # p = E131Packet(universe=1, data=data)
 # print p.packet
@@ -36,11 +36,11 @@ data = [255] * 16
 
 # sent = sock.sendto(p.packet, (UDP_IP, UDP_PORT))
 src = DMXSource()
-data[2]= 0
+
 
 for i in range(255):
     data[0] = i
-    data[1] = 255 -  i
+    data[4] = 255 -  i
     src.send_data(data)
     time.sleep(0.1)
     print(".")
